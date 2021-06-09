@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbrija <mbrija@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 14:26:19 by mbrija            #+#    #+#             */
-/*   Updated: 2021/04/23 14:29:27 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/06/09 13:14:41 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_putchar_fd(char c, int fd)
 
 void	ft_putnbr(int n)
 {
-	unsigned int result;
+	unsigned int	result;
 
 	result = 0;
 	if (n < 0)
@@ -40,7 +40,7 @@ void	ft_putnbr(int n)
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	int i;
+	int	i;
 
 	if (s)
 	{
@@ -52,9 +52,9 @@ void	ft_putstr_fd(char *s, int fd)
 	}
 }
 
-int		ft_strlen(char *s)
+int	ft_strlen(char *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i])
@@ -62,7 +62,7 @@ int		ft_strlen(char *s)
 	return (i);
 }
 
-int		ft_atoi(const char *str, int i)
+int	ft_atoi(const char *str, int i)
 {
 	int		sign;
 	int		integer;
