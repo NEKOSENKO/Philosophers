@@ -6,7 +6,7 @@
 /*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 11:30:44 by mbrija            #+#    #+#             */
-/*   Updated: 2021/06/10 12:31:43 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/06/14 12:16:36 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ int phil_init_next()
 		g_philosophers[i].is_dead = FALSE;
 		g_philosophers[i].status = THINKING;
 		g_philosophers[i].t_last_eat = g_time_start;
-		if (pthread_create(&g_philosophers[i].philo_th, NULL, &function,
-		g_philosophers[i]))
+		if (pthread_create(&g_philosophers[i].philo_th, NULL, &philo_sim, &g_philosophers[i]))
 			return (EXIT_FAILURE);
 		i++;
 	}

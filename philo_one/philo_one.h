@@ -6,7 +6,7 @@
 /*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 14:21:52 by mbrija            #+#    #+#             */
-/*   Updated: 2021/06/09 14:51:00 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/06/14 12:02:32 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ int		ft_strlen(char *s);
 int		ft_atoi(const char *str, int i);
 int		senko_err(char *error);
 int		collect_data(int ac, char **av);
+void	*philo_sim(void *par);
 
 #endif
