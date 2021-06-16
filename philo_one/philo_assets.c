@@ -6,7 +6,7 @@
 /*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 13:03:07 by mbrija            #+#    #+#             */
-/*   Updated: 2021/06/14 12:05:40 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/06/14 13:36:01 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ void	*philo_sim(void *par)
 	&& g_conf.run)
 	{
 		//think
-		//forks
+		//take_forks
 		//eat
-		//stop_forks
+		//put_forks
 		//sleep
 	}
-	//end_stat
+	//end_stat 8 "DONE"
 	pthread_mutex_unlock(&g_conf.mutex);
 	return (NULL);
 }

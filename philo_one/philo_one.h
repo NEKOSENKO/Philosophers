@@ -6,7 +6,7 @@
 /*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 14:21:52 by mbrija            #+#    #+#             */
-/*   Updated: 2021/06/14 12:02:32 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/06/14 13:39:39 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,14 @@ t_philosopher	*g_philosophers;
 t_micro_s_t		g_time_start;
 t_conf			g_conf;
 
-void	ft_putchar_fd(char c, int fd);
-void	ft_putnbr(int n);
-void	ft_putstr_fd(char *s, int fd);
-int		ft_strlen(char *s);
-int		ft_atoi(const char *str, int i);
-int		senko_err(char *error);
-int		collect_data(int ac, char **av);
-void	*philo_sim(void *par);
+void		ft_putchar_fd(char c, int fd);
+void		ft_putnbr(int n);
+void		ft_putstr_fd(char *s, int fd);
+int			ft_strlen(char *s);
+int			ft_atoi(const char *str, int i);
+int			senko_err(char *error);
+int			collect_data(int ac, char **av);
+void		*philo_sim(void *par);
+t_micro_s_t	get_time_stamp();
 
 #endif
