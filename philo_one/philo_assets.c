@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_assets.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mbrija <mbrija@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 13:03:07 by mbrija            #+#    #+#             */
-/*   Updated: 2021/06/14 13:36:01 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/06/17 19:46:50 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,37 @@ t_micro_s_t get_time_stamp()
 	return (time_v.tv_sec * (t_micro_s_t)1000000 + time_v.tv_usec);
 }
 
+void	print_status(t_philosopher *philo)
+{
+	char *str;
+
+	pthread_mutex_lock(&g_conf.mutex_out);
+	str = NULL;
+	if (philo->status == EATING)
+		str = "is EATING\n";
+	else if (philo->status == SLEEPING)
+		str = "is SLEEPING\n";
+	else if (philo->status == THINKING)
+		str = "is THINKING\n";
+	else if (philo->status == DEAD)
+		str = "is DEAD\n";
+	else if (philo->status == TAKINGFORKS)
+		str = "has taken a fork\n";
+	ft_putnbr((get_time_stamp() - g_time_start) / 1000);
+	write(1, " ", 1);
+	ft_putnbr(philo->id);
+	write(1, " ", 1);
+	ft_putstr_fd(str, 1);
+	if (philo->status != DEAD)
+		pthread_mutex_unlock(&g_conf.mutex_out);
+}
+
+void	status(t_philosopher *philo, int stat)
+{
+	if(philo->status != DEAD)
+		philo->status = stat;
+}
+
 void	*philo_sim(void *par)
 {
 	t_philosopher *philo;
@@ -42,6 +73,7 @@ void	*philo_sim(void *par)
 		//sleep
 	}
 	//end_stat 8 "DONE"
+	status(philo, DONE);
 	pthread_mutex_unlock(&g_conf.mutex);
 	return (NULL);
 }

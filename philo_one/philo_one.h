@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_one.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mbrija <mbrija@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 14:21:52 by mbrija            #+#    #+#             */
-/*   Updated: 2021/06/14 13:39:39 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/06/17 19:43:22 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,12 @@ int			senko_err(char *error);
 int			collect_data(int ac, char **av);
 void		*philo_sim(void *par);
 t_micro_s_t	get_time_stamp();
+void		status(t_philosopher *philo, int stat);
+void		print_status(t_philosopher *philo);
+void		think(t_philosopher *philo);
+void		take_fork(t_philosopher *philo);
+void		eat(t_philosopher *philo);
+void		put_forks(t_philosopher *philo);
+void		philo_sleep(t_philosopher *philo);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_one.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mbrija <mbrija@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 11:30:44 by mbrija            #+#    #+#             */
-/*   Updated: 2021/06/14 12:16:36 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/06/17 19:44:07 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	main(int ac, char **av)
 	if (collect_data(ac, av))
 		return (EXIT_FAILURE);
 	//init and unlock mutex out
-	if (phil_init())
+	if (phil_init() /* || supervisor */)
 	{
 		pthread_mutex_unlock(&g_conf.mutex_out);
 		return (EXIT_FAILURE);
