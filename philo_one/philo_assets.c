@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_assets.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbrija <mbrija@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 13:03:07 by mbrija            #+#    #+#             */
-/*   Updated: 2021/06/17 19:46:50 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/06/22 14:43:38 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,19 @@ void	*philo_sim(void *par)
 	
 	philo = par;
 	pthread_mutex_lock(&g_conf.mutex);
-	while ((g_conf.nbr_end == - 1 || philo->total_eated < g_conf.nbr_end)
+	while ((g_conf.nbr_end == -1 || philo->total_eated < g_conf.nbr_end)
 	&& g_conf.run)
 	{
 		//think
+		think(philo);
 		//take_forks
-		//eat
+		take_fork(philo);
+		//eat...............
+		eat(philo);
 		//put_forks
+		put_forks(philo);
 		//sleep
+		philo_sleep(philo);
 	}
 	//end_stat 8 "DONE"
 	status(philo, DONE);

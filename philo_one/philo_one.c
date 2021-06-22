@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_one.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbrija <mbrija@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 11:30:44 by mbrija            #+#    #+#             */
-/*   Updated: 2021/06/17 19:44:07 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/06/22 12:41:26 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,34 @@ int	phil_init()
 	return (EXIT_SUCCESS);
 }
 
+int	supervisor()
+{
+	int	i;
+	int	done;
+
+	done = 0;
+	while (done < g_conf.nbr_p)
+	{
+		done = 0;
+		i = 0;
+		while (i < g_conf.nbr_p)
+		{
+			if (g_philosophers->status == 8)
+				done++;
+			else if ((get_time_stamp() - g_philosophers[i].t_last_eat >
+			g_conf.t_die) && g_philosophers[i].status != EATING)
+			{
+				g_conf.run = FALSE;
+				g_philosophers[i].status = DEAD;
+				print_status(&g_philosophers[i]);
+				return (EXIT_SUCCESS);
+			}
+			i++;
+		}
+	}
+	return (EXIT_SUCCESS);
+}
+
 int	main(int ac, char **av)
 {
 	(void)av;
@@ -80,7 +108,7 @@ int	main(int ac, char **av)
 	if (collect_data(ac, av))
 		return (EXIT_FAILURE);
 	//init and unlock mutex out
-	if (phil_init() /* || supervisor */)
+	if (phil_init() || supervisor())
 	{
 		pthread_mutex_unlock(&g_conf.mutex_out);
 		return (EXIT_FAILURE);

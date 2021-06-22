@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_one.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbrija <mbrija@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 14:21:52 by mbrija            #+#    #+#             */
-/*   Updated: 2021/06/17 19:43:22 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/06/22 12:41:47 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,6 @@ void		take_fork(t_philosopher *philo);
 void		eat(t_philosopher *philo);
 void		put_forks(t_philosopher *philo);
 void		philo_sleep(t_philosopher *philo);
+int			supervisor();
 
 #endif
