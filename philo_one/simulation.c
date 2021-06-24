@@ -6,7 +6,7 @@
 /*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 18:19:42 by mbrija            #+#    #+#             */
-/*   Updated: 2021/06/22 12:46:41 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/06/24 12:46:07 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	take_fork(t_philosopher *philo)
 	status(philo, TAKINGFORKS);
 	pthread_mutex_lock(&g_forks[philo->id - 1]);
 	print_status(philo);
-	pthread_mutex_lock(&g_forks[philo->id % g_conf.nbr_end]);
+	pthread_mutex_lock(&g_forks[philo->id % g_conf.nbr_p]);
 	print_status(philo);
 	
 }
@@ -44,7 +44,7 @@ void	put_forks(t_philosopher *philo)
 	status(philo, SLEEPING);
 	print_status(philo);
 	pthread_mutex_unlock(&g_forks[philo->id - 1]);
-	pthread_mutex_unlock(&g_forks[philo->id % g_conf.nbr_end]);
+	pthread_mutex_unlock(&g_forks[philo->id % g_conf.nbr_p]);
 }
 
 void	philo_sleep(t_philosopher *philo)
