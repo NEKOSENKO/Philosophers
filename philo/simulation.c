@@ -6,11 +6,11 @@
 /*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 18:19:42 by mbrija            #+#    #+#             */
-/*   Updated: 2021/06/24 12:46:07 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/06/24 14:38:06 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo_one.h"
+#include "philo.h"
 
 void	think(t_philosopher *philo)
 {

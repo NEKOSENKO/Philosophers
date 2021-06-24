@@ -6,11 +6,11 @@
 /*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 13:03:07 by mbrija            #+#    #+#             */
-/*   Updated: 2021/06/22 14:43:38 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/06/24 14:38:06 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo_one.h"
+#include "philo.h"
 
 int	senko_err(char *error)
 {
