@@ -6,7 +6,7 @@
 /*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 14:21:52 by mbrija            #+#    #+#             */
-/*   Updated: 2021/06/24 14:37:39 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/06/25 15:40:55 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int			ft_atoi(const char *str, int i);
 int			senko_err(char *error);
 int			collect_data(int ac, char **av);
 void		*philo_sim(void *par);
-t_micro_s_t	get_time_stamp();
+t_micro_s_t	get_time_stamp(void);
 void		status(t_philosopher *philo, int stat);
 void		print_status(t_philosopher *philo);
 void		think(t_philosopher *philo);
@@ -79,6 +79,6 @@ void		take_fork(t_philosopher *philo);
 void		eat(t_philosopher *philo);
 void		put_forks(t_philosopher *philo);
 void		philo_sleep(t_philosopher *philo);
-int			supervisor();
+int			supervisor(void);
 
 #endif

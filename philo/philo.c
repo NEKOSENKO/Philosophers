@@ -28,9 +28,9 @@ int	collect_data(int ac, char **av)
 	return (EXIT_SUCCESS);
 }
 
-int phil_init_next()
+int	phil_init_next(void)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < g_conf.nbr_p)
@@ -39,20 +39,22 @@ int phil_init_next()
 		g_philosophers[i].is_dead = FALSE;
 		g_philosophers[i].status = THINKING;
 		g_philosophers[i].t_last_eat = g_time_start;
-		if (pthread_create(&g_philosophers[i].philo_th, NULL, &philo_sim, &g_philosophers[i]))
+		if (pthread_create(&g_philosophers[i].philo_th, NULL, &philo_sim,
+				&g_philosophers[i]))
 			return (EXIT_FAILURE);
 		i++;
 	}
 	return (EXIT_SUCCESS);
 }
 
-int	phil_init()
+int	phil_init(void)
 {
-	int i;
+	int	i;
 
 	g_time_start = get_time_stamp();
 	g_conf.run = TRUE;
-	g_forks = (pthread_mutex_t *)malloc((g_conf.nbr_p * sizeof(pthread_mutex_t)));
+	g_forks = (pthread_mutex_t *)malloc((g_conf.nbr_p
+				* sizeof(pthread_mutex_t)));
 	if (!g_forks)
 		return (EXIT_FAILURE);
 	if (pthread_mutex_init(&g_conf.mutex, NULL)
@@ -71,7 +73,7 @@ int	phil_init()
 	return (EXIT_SUCCESS);
 }
 
-int	supervisor()
+int	supervisor(void)
 {
 	int	i;
 	int	done;
@@ -85,8 +87,8 @@ int	supervisor()
 		{
 			if (g_philosophers->status == 8)
 				done++;
-			else if ((get_time_stamp() - g_philosophers[i].t_last_eat >
-			g_conf.t_die) && g_philosophers[i].status != EATING)
+			else if ((get_time_stamp() - g_philosophers[i].t_last_eat
+					> g_conf.t_die) && g_philosophers[i].status != EATING)
 			{
 				g_conf.run = FALSE;
 				g_philosophers[i].status = DEAD;
@@ -104,14 +106,11 @@ int	main(int ac, char **av)
 	(void)av;
 	if (ac != 5 && ac != 6)
 		return (senko_err("Error: Missing or too many arguments\n"));
-	//collect data
 	if (collect_data(ac, av))
 		return (EXIT_FAILURE);
-	//init and unlock mutex out
 	if (phil_init() || supervisor())
 	{
 		pthread_mutex_unlock(&g_conf.mutex_out);
 		return (EXIT_FAILURE);
 	}
-	// return (EXIT_SUCCESS);
 }
