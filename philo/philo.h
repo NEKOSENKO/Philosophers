@@ -6,7 +6,7 @@
 /*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 14:21:52 by mbrija            #+#    #+#             */
-/*   Updated: 2021/06/25 15:40:55 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/06/28 13:14:17 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void		ft_putchar_fd(char c, int fd);
 void		ft_putnbr(int n);
 void		ft_putstr_fd(char *s, int fd);
 int			ft_strlen(char *s);
-int			ft_atoi(const char *str, int i);
+int			ft_atoi(const char *str);
 int			senko_err(char *error);
 int			collect_data(int ac, char **av);
 void		*philo_sim(void *par);

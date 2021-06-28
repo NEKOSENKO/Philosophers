@@ -14,13 +14,13 @@
 
 int	collect_data(int ac, char **av)
 {
-	g_conf.nbr_p = ft_atoi(av[1], 0);
-	g_conf.t_die = ft_atoi(av[2], 0) * 1000;
-	g_conf.t_eat = ft_atoi(av[3], 0) * 1000;
-	g_conf.t_sleep = ft_atoi(av[4], 0) * 1000;
+	g_conf.nbr_p = ft_atoi(av[1]);
+	g_conf.t_die = ft_atoi(av[2]) * 1000;
+	g_conf.t_eat = ft_atoi(av[3]) * 1000;
+	g_conf.t_sleep = ft_atoi(av[4]) * 1000;
 	g_conf.nbr_end = -1;
 	if (ac == 6)
-		g_conf.nbr_end = ft_atoi(av[5], 0);
+		g_conf.nbr_end = ft_atoi(av[5]);
 	if (g_conf.nbr_p <= 0 || g_conf.t_die <= 0
 		|| g_conf.t_die <= 0 || g_conf.t_sleep <= 0
 		|| (ac == 6 && g_conf.nbr_end <= 0))

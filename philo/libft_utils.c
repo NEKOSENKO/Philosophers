@@ -6,7 +6,7 @@
 /*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 14:26:19 by mbrija            #+#    #+#             */
-/*   Updated: 2021/06/24 14:38:06 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/06/28 13:14:57 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,31 +62,31 @@ int	ft_strlen(char *s)
 	return (i);
 }
 
-int	ft_atoi(const char *str, int i)
+int	ft_atoi(const char *str)
 {
-	int		sign;
-	int		integer;
+	int	i;
+	int	nb;
+	int	sign;
 
-	integer = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	sign = (str[i] == 45 ? -1 : 1);
-	if (sign == -1)
-		return (-1);
-	if (str[i] == 43 || str[i] == 45)
-		i++;
-	while (str[i] != '\0')
+	sign = 1;
+	i = -1;
+	nb = 0;
+	while (str[++i] != '\0')
 	{
-		if (str[i] >= 48 && str[i] <= 57)
+		if ((str[i] > '/' && str[i] < ':') || str[i] == '-' || str[i] == '+')
 		{
-			if ((unsigned long)integer * 10 > 9223372036854775807)
-				return (sign == 1) ? -1 : 0;
-			integer *= 10;
-			integer += str[i] - 48;
+			if (str[i] == '-')
+				sign = -1;
+			if (str[i] == '+' || str[i] == '-')
+				i++;
+			while (str[i] > '/' && str[i] < ':')
+			{
+				nb = nb * 10 + str[i++] - 48;
+			}
+			return (nb * sign);
 		}
-		else
-			return (integer * sign);
-		i++;
+		else if (str[i] != ' ' && (str[i] < 9 || str[i] > 13))
+			return (nb * sign);
 	}
-	return (integer * sign);
+	return (nb * sign);
 }
