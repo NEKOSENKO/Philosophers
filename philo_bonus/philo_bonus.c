@@ -28,6 +28,29 @@ int	collect_data(int ac, char **av)
 	return (EXIT_SUCCESS);
 }
 
+int	init_next()
+{
+	int	i;
+
+	i = 0;
+	g_conf.stop_write = FALSE;
+	while (i < g_conf.nbr_p)
+	{
+		g_philosophers[i].id = i + 1;
+		g_philosophers[i].is_dead = FALSE;
+		g_philosophers[i].status = THINKING;
+		g_philosophers[i].total_eated = 0;
+		g_philosophers[i].t_last_eat = g_time_start;
+		g_philosophers[i].pid = fork();
+		if (g_philosophers[i].pid == 0)
+			philo_sim(&g_philosophers[i]);
+		else if (g_philosophers[i].pid < 0)
+			return (senko_err("Error : Couldn't fork child"));
+		i++;
+	}
+	return (EXIT_SUCCESS);
+}
+
 int	phil_init(void)
 {
 	int	i;
@@ -37,7 +60,14 @@ int	phil_init(void)
 	g_sema = sem_open("forks", O_CREAT, S_IRWXG, g_conf.nbr_p);
 	g_conf.sem_out = sem_open( "output", O_CREAT, S_IRWXG, 1);
 	g_conf.sem = sem_open("output", O_CREAT, S_IRWXG, 1);
-	
+	if (g_sema == SEM_FAILED || g_conf.sem_out == SEM_FAILED || g_conf.sem == SEM_FAILED)
+		return (senko_err("Error : SEM_FAILED"));
+	g_philosophers = malloc(g_conf.nbr_p * sizeof(t_philosopher));
+	if (!g_philosophers)
+		return (senko_err("Error : Failed to allocate memory"));
+	if (init_next())
+		return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }
 
 int	proc_super()
