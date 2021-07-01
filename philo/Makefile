@@ -6,11 +6,11 @@
 #    By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/09 13:00:21 by mbrija            #+#    #+#              #
-#    Updated: 2021/06/24 14:37:17 by mbrija           ###   ########.fr        #
+#    Updated: 2021/07/01 12:59:09 by mbrija           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS=philo.c libft_utils.c philo_assets.c simulation.c
+SRCS=philo.c libft_utils.c philo_assets.c simulation.c senko_utils.c
 
 FLAGS=-Wextra -Wall -Werror
 
