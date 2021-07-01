@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.h                                            :+:      :+:    :+:   */
+/*   philo_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 14:21:52 by mbrija            #+#    #+#             */
-/*   Updated: 2021/06/30 14:54:54 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/07/01 14:55:11 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILO_H
-# define PHILO_H
+#ifndef PHILO_BONUS_H
+# define PHILO_BONUS_H
 
 # include <unistd.h>
 # include <stdio.h>
@@ -82,7 +82,8 @@ void		take_fork(t_philosopher *philo);
 void		eat(t_philosopher *philo);
 void		put_forks(t_philosopher *philo);
 void		philo_sleep(t_philosopher *philo);
-int			supervisor(void);
+void		*supervisor(void *para);
 int			proc_super(void);
+void 		senko_usleep(int time);
 
 #endif

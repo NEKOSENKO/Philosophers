@@ -6,11 +6,11 @@
 /*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 14:26:19 by mbrija            #+#    #+#             */
-/*   Updated: 2021/06/28 13:14:57 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/07/01 14:27:16 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "philo_bonus.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

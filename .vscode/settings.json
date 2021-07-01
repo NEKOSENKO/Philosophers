@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "philo_three.h": "c"
+        "philo_three.h": "c",
+        "philo.h": "c",
+        "philo_bonus.h": "c"
     }
 }
