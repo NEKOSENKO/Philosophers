@@ -6,7 +6,7 @@
 /*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 13:03:07 by mbrija            #+#    #+#             */
-/*   Updated: 2021/07/01 14:54:06 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/07/01 14:58:12 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	print_status(t_philosopher *philo)
 	ft_putnbr((get_time_stamp() - g_time_start) / 1000);
 	write(1, " ", 1);
 	ft_putnbr(philo->id);
+	write(1, " ", 1);
 	ft_putstr_fd(str, 1);
 	if (philo->status != DEAD)
 		sem_post(g_conf.sem_out);

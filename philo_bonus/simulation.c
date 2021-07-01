@@ -6,7 +6,7 @@
 /*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 18:19:42 by mbrija            #+#    #+#             */
-/*   Updated: 2021/07/01 14:48:46 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/07/01 15:00:07 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	eat(t_philosopher *philo)
 	philo->total_eated++;
 	philo->t_last_eat = get_time_stamp();
 	senko_usleep(g_conf.t_eat);
-	while (get_time_stamp() - philo->t_last_eat > g_conf.t_eat)
+	while (get_time_stamp() - philo->t_last_eat < g_conf.t_eat)
 			;
 }
 
