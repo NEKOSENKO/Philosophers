@@ -28,7 +28,7 @@ int	collect_data(int ac, char **av)
 	return (EXIT_SUCCESS);
 }
 
-int	init_next()
+int	init_next(void)
 {
 	int	i;
 
@@ -56,9 +56,10 @@ int	phil_init(void)
 	g_time_start = get_time_stamp();
 	g_conf.run = TRUE;
 	g_sema = sem_open("forks", O_CREAT, S_IRWXG, g_conf.nbr_p);
-	g_conf.sem_out = sem_open( "output", O_CREAT, S_IRWXG, 1);
+	g_conf.sem_out = sem_open("output", O_CREAT, S_IRWXG, 1);
 	g_conf.sem = sem_open("global", O_CREAT, S_IRWXG, 1);
-	if (g_sema == SEM_FAILED || g_conf.sem_out == SEM_FAILED || g_conf.sem == SEM_FAILED)
+	if (g_sema == SEM_FAILED || g_conf.sem_out == SEM_FAILED
+		|| g_conf.sem == SEM_FAILED)
 		return (senko_err("Error : SEM_FAILED"));
 	g_philosophers = malloc(g_conf.nbr_p * sizeof(t_philosopher));
 	if (!g_philosophers)
@@ -68,7 +69,7 @@ int	phil_init(void)
 	return (EXIT_SUCCESS);
 }
 
-int	proc_super()
+int	proc_super(void)
 {
 	int	i;
 	int	j;
@@ -95,7 +96,6 @@ int	main(int ac, char **av)
 	(void)av;
 	if (ac != 5 && ac != 6)
 		return (senko_err("Error: Missing or too many arguments\n"));
-	//sem_unlik x3 forks out global
 	sem_unlink("forks");
 	sem_unlink("output");
 	sem_unlink("global");
@@ -103,7 +103,6 @@ int	main(int ac, char **av)
 		return (EXIT_FAILURE);
 	if (phil_init() || proc_super())
 	{
-		//sem_unlik x3 forks out global
 		sem_unlink("forks");
 		sem_unlink("output");
 		sem_unlink("global");

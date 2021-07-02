@@ -6,7 +6,7 @@
 /*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 13:03:07 by mbrija            #+#    #+#             */
-/*   Updated: 2021/07/01 14:58:12 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/07/02 15:16:45 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_micro_s_t	get_time_stamp(void)
 void	print_status(t_philosopher *philo)
 {
 	char	*str;
-	
+
 	str = NULL;
 	if (!g_conf.run)
 		return ;
@@ -58,8 +58,6 @@ void	status(t_philosopher *philo, int stat)
 	if (philo->status != DEAD)
 		philo->status = stat;
 }
-
-
 
 void	*philo_sim(void *par)
 {

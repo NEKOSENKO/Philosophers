@@ -6,7 +6,7 @@
 /*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 14:21:52 by mbrija            #+#    #+#             */
-/*   Updated: 2021/07/01 14:55:11 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/07/02 15:19:43 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,6 @@ void		put_forks(t_philosopher *philo);
 void		philo_sleep(t_philosopher *philo);
 void		*supervisor(void *para);
 int			proc_super(void);
-void 		senko_usleep(int time);
+void		senko_usleep(int time);
 
 #endif

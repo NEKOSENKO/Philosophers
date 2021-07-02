@@ -6,17 +6,17 @@
 /*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 12:58:53 by mbrija            #+#    #+#             */
-/*   Updated: 2021/07/01 12:58:58 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/07/02 15:27:50 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void senko_usleep(int time)
+void	senko_usleep(int time)
 {
-	int start;
-	int current;
-	int final;
+	int	start;
+	int	current;
+	int	final;
 
 	start = get_time_stamp();
 	if (time > 60000)
@@ -28,6 +28,6 @@ void senko_usleep(int time)
 		current = get_time_stamp();
 		final = current - start;
 		if (final >= time)
-			break;
+			break ;
 	}
 }

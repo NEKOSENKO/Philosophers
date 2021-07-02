@@ -6,7 +6,7 @@
 /*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 18:19:42 by mbrija            #+#    #+#             */
-/*   Updated: 2021/07/01 15:00:07 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/07/02 15:22:01 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void	take_fork(t_philosopher *philo)
 	sem_wait(g_sema);
 	sem_wait(g_sema);
 	status(philo, TAKINGFORKS);
-	print_status(philo);	
 	print_status(philo);
-	sem_post(g_conf.sem);	
+	print_status(philo);
+	sem_post(g_conf.sem);
 }
 
 void	eat(t_philosopher *philo)
@@ -37,7 +37,7 @@ void	eat(t_philosopher *philo)
 	philo->t_last_eat = get_time_stamp();
 	senko_usleep(g_conf.t_eat);
 	while (get_time_stamp() - philo->t_last_eat < g_conf.t_eat)
-			;
+		;
 }
 
 void	put_forks(t_philosopher *philo)
@@ -54,5 +54,5 @@ void	philo_sleep(t_philosopher *philo)
 	status(philo, SLEEPING);
 	senko_usleep(g_conf.t_sleep);
 	while (get_time_stamp() - philo->start_sleep < g_conf.t_sleep)
-			;
+		;
 }

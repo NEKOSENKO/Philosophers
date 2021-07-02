@@ -6,19 +6,19 @@
 /*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 18:19:42 by mbrija            #+#    #+#             */
-/*   Updated: 2021/07/01 13:29:41 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/07/02 15:23:42 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void think(t_philosopher *philo)
+void	think(t_philosopher *philo)
 {
 	status(philo, THINKING);
 	print_status(philo);
 }
 
-void take_fork(t_philosopher *philo)
+void	take_fork(t_philosopher *philo)
 {
 	pthread_mutex_unlock(&g_conf.mutex);
 	status(philo, TAKINGFORKS);
@@ -28,7 +28,7 @@ void take_fork(t_philosopher *philo)
 	print_status(philo);
 }
 
-void eat(t_philosopher *philo)
+void	eat(t_philosopher *philo)
 {
 	status(philo, EATING);
 	print_status(philo);
@@ -39,7 +39,7 @@ void eat(t_philosopher *philo)
 		;
 }
 
-void put_forks(t_philosopher *philo)
+void	put_forks(t_philosopher *philo)
 {
 	status(philo, SLEEPING);
 	print_status(philo);
@@ -47,7 +47,7 @@ void put_forks(t_philosopher *philo)
 	pthread_mutex_unlock(&g_forks[philo->id % g_conf.nbr_p]);
 }
 
-void philo_sleep(t_philosopher *philo)
+void	philo_sleep(t_philosopher *philo)
 {
 	philo->start_sleep = get_time_stamp();
 	status(philo, SLEEPING);
