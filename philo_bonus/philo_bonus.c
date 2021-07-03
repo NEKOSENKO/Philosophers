@@ -101,7 +101,7 @@ int	main(int ac, char **av)
 	sem_unlink("global");
 	if (collect_data(ac, av))
 		return (EXIT_FAILURE);
-	if (phil_init() || proc_super())
+	if (phil_init() || !proc_super())
 	{
 		sem_unlink("forks");
 		sem_unlink("output");

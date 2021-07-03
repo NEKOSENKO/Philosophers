@@ -6,7 +6,7 @@
 /*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 13:03:07 by mbrija            #+#    #+#             */
-/*   Updated: 2021/07/02 15:16:45 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/07/03 12:59:57 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,5 @@ void	*philo_sim(void *par)
 		philo_sleep(philo);
 	}
 	status(philo, DONE);
-	return (NULL);
+	exit(0);
 }
