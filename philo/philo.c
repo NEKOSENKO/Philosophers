@@ -89,20 +89,10 @@ int	supervisor(void)
 				done++;
 			else if ((get_time_stamp() - g_philosophers[i].t_last_eat
 					> g_conf.t_die) && g_philosophers[i].status != EATING)
-			{
-				g_conf.run = FALSE;
-				g_philosophers[i].status = DEAD;
-				print_status(&g_philosophers[i]);
-				return (EXIT_SUCCESS);
-			}
+				return (supervisor_hack_2(i));
 			if (done == g_conf.nbr_p)
 			{
-				i = 0;
-				while (i < g_conf.nbr_p)
-				{
-					pthread_join(g_philosophers[i].philo_th, NULL);
-					i++;
-				}
+				supervisor_hack(g_conf.nbr_p, g_philosophers);
 				return (EXIT_SUCCESS);
 			}
 			i++;
