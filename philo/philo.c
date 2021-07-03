@@ -79,7 +79,7 @@ int	supervisor(void)
 	int	done;
 
 	done = 0;
-	while (done < g_conf.nbr_p)
+	while (1)
 	{
 		done = 0;
 		i = 0;
@@ -93,6 +93,16 @@ int	supervisor(void)
 				g_conf.run = FALSE;
 				g_philosophers[i].status = DEAD;
 				print_status(&g_philosophers[i]);
+				return (EXIT_SUCCESS);
+			}
+			if (done == g_conf.nbr_p)
+			{
+				i = 0;
+				while (i < g_conf.nbr_p)
+				{
+					pthread_join(g_philosophers[i].philo_th, NULL);
+					i++;
+				}
 				return (EXIT_SUCCESS);
 			}
 			i++;
