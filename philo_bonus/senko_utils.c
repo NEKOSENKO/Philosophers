@@ -6,7 +6,7 @@
 /*   By: mbrija <mbrija@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 14:28:40 by mbrija            #+#    #+#             */
-/*   Updated: 2021/07/02 15:22:34 by mbrija           ###   ########.fr       */
+/*   Updated: 2021/07/05 13:13:53 by mbrija           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ void	senko_usleep(int time)
 	int	final;
 
 	start = get_time_stamp();
-	if (time > 60000)
-		usleep(time - 20000);
-	else
-		usleep(time);
+	usleep(time - 20000);
 	while (1)
 	{
 		current = get_time_stamp();
